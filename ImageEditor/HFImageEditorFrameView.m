@@ -3,7 +3,7 @@
 
 
 @interface HFImageEditorFrameView ()
-@property (nonatomic,retain) UIImageView *imageView;
+@property (nonatomic,strong) UIImageView *imageView;
 @end
 
 @implementation HFImageEditorFrameView
@@ -20,7 +20,6 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
     [self addSubview:imageView];
     self.imageView = imageView;
-    [imageView release];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -41,11 +40,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_imageView release];
-    [super dealloc];
-}
 
 
 - (void)setCropRect:(CGRect)cropRect
